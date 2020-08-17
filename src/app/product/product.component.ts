@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductMockService} from './product.mock.service' ;
+import { Produit } from '../shared/produit';
 
 @Component({
   selector: 'app-product',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  produits: Produit[] ;
+  constructor(private productService: ProductMockService) { }
 
   ngOnInit(): void {
+    this.produits = this.productService.getProducts() ;
   }
 
 }
